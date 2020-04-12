@@ -1,0 +1,30 @@
+{
+  "name": "simple-http-proxy",
+  "version": "1.0.0",
+  "description": "Simple http-proxy which Returns domains content with 'Hello world!' content.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crzdvl/Simple-http-proxy.git"
+  },
+  "author": "crzdvl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crzdvl/Simple-http-proxy/issues"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "homepage": "https://github.com/crzdvl/Simple-http-proxy#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "commitizen": "^4.0.4",
+    "http": "0.0.1-security",
+    "http-proxy": "^1.18.0"
+  }
+}
