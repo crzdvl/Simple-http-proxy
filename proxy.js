@@ -18,13 +18,16 @@ async function getPage(req, res) {
         host = allUrls.query.host;
 
         if (host) {
-            pageData = await ProxyService.getPageData(host);
+            pageData = await ProxyService.getGzipPageData(host);
             pageData = await ProxyService.addData(pageData);
+            pageData = await ProxyService.returnGzipDataPage(pageData);
 
+            res.writeHead(200, { 'Content-Type': 'text/html', 'Content-Encoding': 'gzip' });
             res.write(pageData);
+            res.end();
         }
-    } catch (error) {
-        res.write(error);
+    } catch (err) {
+        res.write(err);
     }
 }
 

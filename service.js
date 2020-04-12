@@ -1,4 +1,5 @@
-const axios = require('axios');
+let request = require('request');
+let zlib = require('zlib');
 const cheerio = require('cheerio');
 
 /**
@@ -6,9 +7,11 @@ const cheerio = require('cheerio');
  * @param {host}
  * @returns {any}
  */
-function getPageData(host) {
-    return axios.get(host).then((res) => {
-        return res.data;
+function getGzipPageData(url) {
+    return new Promise((resolve) => {
+        request(url, { gzip: true }, (err, resp, body) => {
+            resolve(body);
+        });
     });
 }
 
@@ -20,10 +23,26 @@ function getPageData(host) {
 function addData(pageData) {
     const $ = cheerio.load(pageData);
     $('h1').text('Hello kittens!');
+
     return $.html();
 }
 
+/**
+ * @method addData
+ * @param {pageData}
+ * @returns {any}
+ */
+function returnGzipDataPage(pageData) {
+    return new Promise((resolve) => {
+        zlib.gzip(pageData, (err, encoded) => {
+            resolve(encoded);
+        });
+    });
+}
+
+
 module.exports = {
-    getPageData,
-    addData
+    getGzipPageData,
+    addData,
+    returnGzipDataPage
 };
