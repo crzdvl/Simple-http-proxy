@@ -1,7 +1,7 @@
 {
   "name": "simple-http-proxy",
   "version": "1.0.0",
-  "description": "Simple http-proxy which Returns domains content with 'Hello world!' content.",
+  "description": "Simple http-proxy which returns domains content with 'Hello kittens!' content.",
   "main": "index.js",
   "scripts": {
     "start": "node server.js"
