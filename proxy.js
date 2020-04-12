@@ -22,7 +22,9 @@ async function getPage(req, res) {
             pageData = await ProxyService.addData(pageData);
             pageData = await ProxyService.returnGzipDataPage(pageData);
 
-            res.writeHead(200, { 'Content-Type': 'text/html', 'Content-Encoding': 'gzip' });
+            let lengthOfContent = Buffer.byteLength(pageData, 'utf8');
+
+            res.writeHead(200, { 'Content-Type': 'text/html', 'Content-Encoding': 'gzip', 'Content-Length': lengthOfContent });
             res.write(pageData);
             res.end();
         }
