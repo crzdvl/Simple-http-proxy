@@ -4,7 +4,7 @@
   "description": "Simple http-proxy which Returns domains content with 'Hello world!' content.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -12,9 +12,6 @@
   },
   "author": "crzdvl",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/crzdvl/Simple-http-proxy/issues"
-  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
@@ -22,8 +19,12 @@
   },
   "homepage": "https://github.com/crzdvl/Simple-http-proxy#readme",
   "dependencies": {
+    "axios": "^0.19.2",
     "cheerio": "^1.0.0-rc.3",
     "commitizen": "^4.0.4",
+    "editorconfig": "^0.15.3",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
     "http": "0.0.1-security",
     "http-proxy": "^1.18.0"
   }
